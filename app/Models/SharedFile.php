@@ -15,7 +15,7 @@ class SharedFile extends Model
         'storage_path',
         'mime_type',
         'size',
-        'expiration_type',
+        'expiration',
         'expires_at',
         'is_deleted'
     ];

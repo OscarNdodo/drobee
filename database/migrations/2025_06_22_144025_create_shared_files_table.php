@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('storage_path');
             $table->string('mime_type');
             $table->integer('size');
-            $table->enum('expiration_type', ['none', 'download', 'time']);
-            $table->datetime('expires_at')->nullable();
+            $table->date("expires_at")->nullable();
+            $table->enum('expiration', ['1h', '1d', '7d', 'download'])->default("1d");
             $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });

@@ -21,6 +21,11 @@ return new class extends Migration
             $table->date("expires_at")->nullable();
             $table->enum('expiration', ['1h', '1d', '7d', 'download'])->default("1d");
             $table->boolean('is_deleted')->default(false);
+            $table->boolean('is_downloaded')->default(false);
+            $table->integer('download_count')->default(0);
+            $table->string('ip_address')->nullable();
+            $table->string('user_agent')->nullable();
+            $table->string('referrer')->nullable();
             $table->timestamps();
         });
     }

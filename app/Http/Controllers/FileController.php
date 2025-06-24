@@ -37,7 +37,10 @@ class FileController extends Controller
                 $date = date(now()->addDays(1));
                 break;
             case '7d':
-                $date = date(now()->addDays(1));
+                $date = date(now()->addDays(7));
+                break;
+            default:
+                $date = date(now()->addDays(21));
                 break;
         }
 
@@ -68,28 +71,34 @@ class FileController extends Controller
         $file = SharedFile::where('token', $token)->firstOrFail();
         $date = date_diff(now(), $file->expires_at);
 
-        switch ($file->expiration) {
-            case '1h':
-                if ($date->invert) {
-                    // dd($file->storage_path);
-                    if ($date->h <= 0) {
-                        Storage::delete($file->storage_path);
-                        $file->delete();
-                    }
-                }
-                break;
-            case '1d':
-                break;
-            case '7d':
-                break;
-            default:
-                Storage::delete($file->storage_path);
-                $file->delete();
-                break;
+        // switch ($file->expiration) {
+        //     case '1h':
+        //         if ($date->invert) {
+        //             // dd($file->storage_path);
+        //             if ($date->h <= 0) {
+        //                 Storage::delete($file->storage_path);
+        //                 $file->delete();
+        //             }
+        //         }
+        //         break;
+        //     case '1d':
+        //         break;
+        //     case '7d':
+        //         break;
+        //     default:
+        //         Storage::delete($file->storage_path);
+        //         $file->delete();
+        //         break;
+
+        // }
+
+        dd();
+        if ($file->is_deleted) {
+            return view('files.download', [
+                'error' => 'Este arquivo expirou e não está mais disponível'
+            ]);
         }
 
-        // dd($date, $file->expires_at, $file->expiration);
-        // if ()
         if (!$file) {
             return view('files.download', [
                 'error' => 'Este arquivo expirou e não está mais disponível'
@@ -109,7 +118,23 @@ class FileController extends Controller
                 'error' => 'Este arquivo expirou e não está mais disponível'
             ]);
         }
+        if ($file->expiration == "download") {
+            if ($file->is_downloaded || $file->download_count >= 1) {
+                Storage::delete($file->storage_path);
+                return view('files.download', [
+                    'error' => 'Este arquivo já foi baixado e não está mais disponível'
+                ]);
+            }
+        }
+
         $file->markAsDownloaded();
+        $file->is_downloaded = true;
+        $file->ip_address = request()->ip();
+        $file->user_agent = request()->userAgent();
+        $file->referrer = request()->headers->get('referer');
+        $file->download_count++;
+        $file->save();
+
         return Storage::download($file->storage_path, $file->original_name);
     }
 }

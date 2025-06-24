@@ -17,7 +17,12 @@ class SharedFile extends Model
         'size',
         'expiration',
         'expires_at',
-        'is_deleted'
+        'is_deleted',
+        'is_downloaded',
+        'download_count',
+        'ip_address',
+        'user_agent',
+        'referrer',
     ];
 
     protected $casts = [

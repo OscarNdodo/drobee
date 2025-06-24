@@ -150,7 +150,7 @@
         @else
             <div class="mb-8">
                 <div
-                    class="w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    class="w-20 h-20 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -158,7 +158,7 @@
                     </svg>
                 </div>
                 <h2 class="text-2xl font-bold text-white">
-                    <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                    <span class="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
                         Download do Arquivo
                     </span>
                 </h2>
@@ -195,55 +195,6 @@
     </div>
 
 
-
-
-
-    <!-- Footer -->
-    <footer class="relative z-10 px-6 py-12 bg-black/70 opacity-80 backdrop-blur-md border-b border-slate-800">
-        <div class="container mx-auto">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-orange-500 rounded-lg"></div>
-                        <span class="text-xl font-bold">Drobee</span>
-                    </div>
-                    <p class="text-slate-400">
-                        A forma mais segura de partilhar ficheiros e links temporários na Internet.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Produto</h4>
-                    <ul class="space-y-2 text-slate-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Recursos</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Segurança</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Empresa</h4>
-                    <ul class="space-y-2 text-slate-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Sobre</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contacto</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Suporte</h4>
-                    <ul class="space-y-2 text-slate-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Centro de Ajuda</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Documentação</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
-                <p>&copy;2025 | Todos os direitos reservados. Feito com ❤️ por Drobee.</p>
-            </div>
-        </div>
-    </footer>
 
 </body>
 
